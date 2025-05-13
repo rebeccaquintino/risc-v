@@ -1,0 +1,87 @@
+%
+% main.tex
+%
+% Copyright (C) 2023 UFSC.
+%
+% DOCUMENTATION-TEMPLATE
+%
+% This work is licensed under the Creative Commons Attribution-ShareAlike 4.0
+% International License. To view a copy of this license,
+% visit http://creativecommons.org/licenses/by-sa/4.0/.
+%
+
+\documentclass[a4paper,12pt]{book}
+\usepackage{minted}
+\usepackage[most]{tcolorbox}
+\usepackage{adjustbox}
+\usepackage[ddmmyyyy]{datetime}
+\usepackage{lipsum}
+\usepackage{book}
+\usepackage{datetime}
+\newdateformat{monthyeardate}{%
+  \monthname[\THEMONTH], \THEYEAR}
+
+\title{RISC-V: An approach for learning the architecture}
+\author{SpaceLab}
+\date{\today}
+
+% File metadata
+\hypersetup
+{
+  pdfauthor   = {SpaceLab},
+  pdfsubject  = {\thetitle},
+  pdftitle    = {\thetitle},
+  pdfkeywords = {Nanosatellites, CubeSats},
+  colorlinks=true,
+  urlcolor=blue,
+  linkcolor=blue,
+  citecolor=black
+  }
+
+\usepackage{soul}
+
+\sethlcolor{lightgray}
+\usepackage[framemethod=tikz]{mdframed}
+
+\surroundwithmdframed[
+  hidealllines=true,
+  backgroundcolor=lightgray,
+  innerleftmargin=15pt,
+  innertopmargin=0pt,
+  innerbottommargin=0pt]{lstlisting}
+
+\begin{document}
+
+    \pagenumbering{roman}
+    \setcounter{page}{1}
+
+    \input{header/titlepage}
+    \cleardoublepage
+    \input{header/authorpage}
+    \cleardoublepage
+
+    \listoffigures
+    \addcontentsline{toc}{chapter}{List of Figures}
+
+    \listoftables
+    \addcontentsline{toc}{chapter}{List of Tables}
+
+    \printnomenclature
+    \addcontentsline{toc}{chapter}{Nomenclature}
+
+    \tableofcontents
+    \cleardoublepage
+    
+    \pagenumbering{arabic}
+    \setcounter{page}{1}
+
+    \input{chapters/introduction} % presents the book
+    \input{chapters/riscv} % presents the RISC-V architecture
+    \input{chapters/c_language} % presents the c language
+    \input{chapters/peripherals} % presents the peripherals and the board 
+    \input{chapters/programing} % chapter for the technician
+    \input{chapters/examples} % show high-level examples 
+    \input{chapters/references} % some references
+    \input{appendices/appendices} % appendices with some libraries and tables
+
+\end{document}
